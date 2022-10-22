@@ -231,7 +231,7 @@
                         <!--如果想在项目打包时构建镜像添加-->
                         <execution>
                             <id>build-image</id>
-                            <phase>package</phase>
+                            <phase>deploy</phase>
                             <goals>
                                 <goal>build</goal>
                             </goals>
