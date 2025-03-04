@@ -21,8 +21,12 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
+      username: elastic # 如果启用了安全功能，提供用户名
+      password: elastic
   elasticsearch:
     uris: localhost:9200
+    username: elastic  # 用户名
+    password: elastic # 密码
 mybatis:
   mapper-locations:
     - classpath:dao/*.xml
