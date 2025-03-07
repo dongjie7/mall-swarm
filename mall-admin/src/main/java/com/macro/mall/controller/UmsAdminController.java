@@ -1,6 +1,8 @@
 package com.macro.mall.controller;
 
+import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.collection.CollUtil;
 import com.macro.mall.common.api.CommonPage;
 import com.macro.mall.common.api.CommonResult;
@@ -179,5 +181,17 @@ public class UmsAdminController {
     public CommonResult<List<UmsRole>> getRoleList(@PathVariable Long adminId) {
         List<UmsRole> roleList = adminService.getRoleList(adminId);
         return CommonResult.success(roleList);
+    }
+
+    @Operation(summary = "sso单点登录")
+    @RequestMapping(value = "/sso/login", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult ssoLogin(String ticket) {
+        //获取用户信息存在admin
+        //调用admin的登录接口即可
+        Map<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("token", "");
+        tokenMap.put("tokenHead", tokenHead+" ");
+        return CommonResult.success(tokenMap);
     }
 }
